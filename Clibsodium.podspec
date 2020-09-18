@@ -10,12 +10,12 @@ Pod::Spec.new do |s|
   s.source = { :git => 'https://github.com/mrosales/Clibsodium-xcframework.git', :branch => 'master' }
 
   s.requires_arc = true
+  s.static_framework = true
+  s.platform = :ios
   s.ios.deployment_target  = '9.0'
   s.osx.deployment_target  = '10.10'
+  s.xcconfig = { 'BUILD_LIBRARY_FOR_DISTRIBUTION' => 'YES' }
 
   s.vendored_frameworks = ['Clibsodium.xcframework']
   s.preserve_paths      = ['Clibsodium.xcframework']
-  s.xcconfig            = {
-    'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Clibsodium/**"'
-  }
 end
